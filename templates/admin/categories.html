@@ -1,0 +1,27 @@
+{% extends 'admin/layout.html' %}
+{% block content %}
+
+<div class="container pb-3">
+    <div class="row">
+        <div class="col-lg-10 col-md-10">
+            <h4 class="">Categories</h4>
+        </div>
+        <div class="col-lg-2 col-md-2">
+            <a class="btn btn-primary" href="{{ url_for('create_category')}}">Create</a>
+        </div>
+    </div>
+</div>
+
+    <table class="table table-striped">
+        <tbody>
+          {% for category in categories %}
+            <tr>
+              <td class="w-50">{{ category.name }}</td>
+              <td class="w-25"><a class="btn btn-warning" href="{{ url_for('edit_category', id = category.id) }}">Edit</a></td>
+              <td class="w-25"><a class="btn btn-danger" href="{{ url_for('delete_category', id = category.id) }}">Delete</a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+{% endblock %}

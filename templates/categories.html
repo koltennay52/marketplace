@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col text-center">
+            <h2>Product Categories</h2>
+            <p>Choose your hardware category to see what products we currently have in stock: </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+        <div class="col-lg-8 col-md-8 col-sm-8 text-center">
+            <ul class="list-group">
+                {% for category in categories %}
+                    <li class="list-group-item"><a href="{{ url_for('category', categoryPass = category.name) }}">{{category.name}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

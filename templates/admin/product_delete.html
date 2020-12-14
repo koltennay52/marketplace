@@ -1,0 +1,14 @@
+{% extends 'admin/layout.html' %}
+
+{% block content %}
+
+
+<h3>Are you sure you want to delete product '{{ name }}'?</h3>
+
+<form method="POST">
+        <input type="submit" class="btn btn-danger mt-2" value="Delete">
+        <a class="btn btn-info mt-2" href="{{ url_for('admin_products') }}">Cancel</a>
+</form>
+
+    
+{% endblock %}

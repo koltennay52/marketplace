@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col text-center">
+            <h2>{{ category.name }}</h2>
+            <p>{{ category.description }}</p>
+        </div>
+    </div>
+</div>
+<div class="container py-2">
+    <div class="row">
+        {% for product in products %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ product.image_file }}" alt="productimage">
+                <div class="card-body text-center">
+                  <h5 class="card-title">{{ product.manufacturer.name}} {{product.name}}</h5>
+                  <a href="{{ url_for('product', id = product.id)}}" class="btn btn-primary">View More Info</a>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}

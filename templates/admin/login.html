@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Admin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light p-4">
+        <span class="navbar-brand mb-0 h1">Admin</span>
+
+            <a href="{{ url_for('register')}}" class="btn btn-secondary">Register</a>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {% for message in get_flashed_messages() %}
+                <div class="flash">{{ message }}</div>
+                 {% endfor %}
+                 <h3>Login</h3>
+                 <form method="POST">
+                    <div class="form-group">
+                      <label class="label">Username</label>
+                        <input type="text" class="form-control" name="username">
+                    </div>
+                    <div class="form-group">
+                      <label class="label">Password</label>
+                        <input type="password" class="form-control" name="password">
+                    </div>
+                    <div class="field">
+                      <div class="control">
+                        <input type="submit" class="btn btn-primary mt-2" value="Login">
+                      </div>
+                    </div>
+                  </form>
+
+            </div>
+          
+        </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+            <h2>Welcome to Kolten's Marketplace!</h2>
+            <p>We are a wholesale retailer that specializes in the sale of PC components. Whether you are building a brand new pc, or upgrading a current rig, we have you covered.   The latest PC hardware is sold here at the most competitive prices.</p>
+            <p>View our different components <a href="{{ url_for('categories') }}">here.</a></p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'admin/layout.html' %}
+
+{% block content %}
+<div class="">
+  <header class="">
+    <h3 class="">Category</h3>
+  </header>
+  <div class="">
+    <div class="">
+      {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+      {% endfor %}
+      <form method="POST">
+        <div class="form-group">
+          <label class="">Name</label>
+            <input type="text" class="form-control" name="name" value="{{ name | default('')}}">
+        </div>
+        <div class="form-group">
+          <label class="">Description</label>
+            <input type="text" class="form-control"" name="description" value="{{ description | default('')}}">
+        </div>
+            <input type="submit" class="btn btn-primary mt-2" value="Submit">
+            <a class="btn btn-danger mt-2" href="{{ url_for('admin_categories') }}">Cancel</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

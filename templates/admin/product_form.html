@@ -1,0 +1,62 @@
+{% extends 'admin/layout.html' %}
+
+{% block content %}
+<div class="">
+  <header class="">
+    <h3 class="">Product</h3>
+  </header>
+  <div class="">
+    <div class="">
+      {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+      {% endfor %}
+      <form method="POST">
+        <div class="form-group">
+          <label class="">Name</label>
+            <input type="text" class="form-control" name="name" value="{{ name | default('')}}">
+        </div>
+        <div class="">
+            <label class="">Category</label>
+            <div class="">
+              <div class="">
+                <select class="form-control" name="category_id">
+                  {% for category in categories %}
+                  <option value="{{ category.id }}" {{ 'selected' if category.name == category_name }}>{{category.name}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="">
+            <label class="">Manufacturer</label>
+            <div class="">
+              <div class="">
+                <select class="form-control" name="manufacturer_id">
+                  {% for manufacturer in manufacturers %}
+                  <option value="{{ manufacturer.id }}" {{ 'selected' if manufacturer.name == manufacturer_name }}>{{manufacturer.name}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="">Description</label>
+              <input type="text" class="form-control" name="description" value="{{ description | default('')}}">
+          </div>
+          <div class="form-group">
+            <label class="">Price (cents)</label>
+              <input type="text" class="form-control" name="price" value="{{ price | default('')}}">
+          </div>
+          <div class="form-group">
+            <label class="">Image URL</label>
+              <input type="text" class="form-control" name="image_file" value="{{ image_file | default('')}}">
+          </div>
+
+            <input type="submit" class="btn btn-primary mt-2" value="Submit">
+            <a class="btn btn-danger mt-2" href="{{ url_for('admin_products') }}">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
